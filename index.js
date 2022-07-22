@@ -12,6 +12,11 @@ server.get('/echo', (req, res) => {
   res.jsonp(req.query);
 });
 
+server.get('/data2', (req, res) => {
+  res.jsonp(req.query);
+
+})
+
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser);
@@ -54,7 +59,7 @@ router.render = (req, res) => {
 };
 
 // Use default router
-server.use(router);
+server.use("/api" ,router);
 
 // Start server
 const PORT = process.env.PORT || 3000;
